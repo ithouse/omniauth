@@ -57,6 +57,7 @@ module OmniAuth
           fail!(:invalid_request)
         end
       rescue Exception => e
+        Rails.logger.error("[omniauth.draugiem] #{e}\n\n#{$@.join("\n")}")
         fail!(:invalid_response, e)
       end
 
